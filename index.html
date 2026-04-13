@@ -260,60 +260,71 @@
   }
 
   /* ── ACCOMMODATION CHOICES ── */
-  .choice-section {
+  .stays-section {
     max-width: 900px;
     margin: 0 auto;
     padding: 80px 30px;
   }
-  .choice-section h2 {
+  .stays-section h2 {
     font-size: 2rem;
     font-weight: 400;
     text-align: center;
     margin-bottom: 12px;
     color: var(--ocean);
   }
-  .choice-section .section-intro {
+  .stays-section .section-intro {
     text-align: center;
     max-width: 600px;
     margin: 0 auto 50px;
     font-size: 1rem;
     color: var(--text-light);
   }
-  .choice-pair {
+  .stay-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
-  .choice-card {
+    gap: 0;
     background: var(--white);
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 40px;
   }
-  .choice-card .image-slot {
-    height: 240px;
+  .stay-card.reverse { direction: rtl; }
+  .stay-card.reverse > * { direction: ltr; }
+  .stay-card .image-slot {
+    height: 100%;
+    min-height: 280px;
     border: none;
-    border-bottom: 1px dashed #ccc;
   }
-  .choice-card .card-body {
-    padding: 24px;
+  .stay-card .card-body {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .choice-card h4 {
-    font-size: 1.15rem;
+  .stay-card .stay-dates {
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .stay-card h4 {
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 4px;
     color: var(--ocean);
   }
-  .choice-card .price {
+  .stay-card .stay-location {
     font-size: 0.85rem;
-    color: var(--gold);
-    margin-bottom: 12px;
-    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 14px;
+    font-style: italic;
   }
-  .choice-card p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+  .stay-card p {
+    font-size: 0.92rem;
+    line-height: 1.65;
   }
   .choice-or {
     display: flex;
@@ -412,7 +423,8 @@
     .split { grid-template-columns: 1fr; }
     .split.reverse { direction: ltr; }
     .card-grid { grid-template-columns: 1fr; }
-    .choice-pair { grid-template-columns: 1fr; }
+    .stay-card { grid-template-columns: 1fr; }
+    .stay-card.reverse { direction: ltr; }
     .chapter-title { font-size: 2rem; }
     .narrative { padding: 50px 24px; }
   }
@@ -472,9 +484,15 @@
       <div class="stop-desc">rainforest · stars · waterfalls</div>
     </div>
     <div class="route-arrow">✈</div>
+    <div style="flex-basis: 100%; height: 12px;"></div>
+    <div class="route-stop">
+      <div class="stop-name">Kaua'i South Shore</div>
+      <div class="stop-desc">garden · valley · bog</div>
+    </div>
+    <div class="route-arrow">→</div>
     <div class="route-stop">
       <div class="stop-name">Kaua'i North Shore</div>
-      <div class="stop-desc">cliffs · gardens · seabirds</div>
+      <div class="stop-desc">cliffs · sea · sunset</div>
     </div>
   </div>
 </section>
@@ -510,7 +528,7 @@
     <div class="inner">
       <h3>Kealakekua Bay by Outrigger</h3>
       <p>Culturally trained guides from Kona Boys paddle you across the bay in a traditional Hawaiian outrigger canoe, then guide you through a reef where spinner dolphins, manta rays, and green sea turtles are residents, not visitors. The bay is a marine sanctuary — no motorized boats allowed in the snorkeling zone.</p>
-      <p class="detail">4.5 hours · $210–230/person · small groups</p>
+      <p class="detail">4.5 hours · small groups</p>
     </div>
   </div>
 </div>
@@ -535,7 +553,7 @@
     <div class="inner">
       <h3>Swimming with Sharks</h3>
       <p>Three miles off the Kona coast, in deep blue water, a small boat anchors and you slip in. No cage. No scuba certification needed. Galapagos sharks, sandbar sharks, and oceanic whitetips cruise the open water around you while a marine naturalist guides the encounter. Maximum six people in the water. Julia — the boat is lovely too.</p>
-      <p class="detail">Kona Shark Diving · $250/person · max 6</p>
+      <p class="detail">Kona Shark Diving · max 6 in the water</p>
     </div>
   </div>
 </div>
@@ -705,7 +723,7 @@
     <div class="inner">
       <h3>Ni'ihau & Na Pali by Sea</h3>
       <p>A seven-hour voyage that covers 90 nautical miles — the full Na Pali coast, then across the channel to the Forbidden Island of Ni'ihau and Lehua Crater, a rat-free seabird sanctuary. Laysan albatrosses, monk seals, snorkeling in 100-foot visibility water. Voted the #1 boat tour in America.</p>
-      <p class="detail">Holo Holo Charters · $310/person · 7 hours · departs Port Allen</p>
+      <p class="detail">Holo Holo Charters · 7 hours · departs Port Allen</p>
     </div>
   </div>
 </div>
@@ -734,6 +752,18 @@
   </div>
 </div>
 
+<div class="split reverse">
+  <div class="image-slot has-image">
+    <img src="images/alakai-swamp.jpg" alt="Boardwalk through the fog-soaked Alaka'i Swamp">
+  </div>
+  <div class="text-side">
+    <div class="inner">
+      <h3>Alaka'i Swamp</h3>
+      <p>A fog-soaked montane bog at 4,000 feet — the highest swamp in the world, and the last refuge of Kaua'i's endangered honeycreepers. A boardwalk winds through dripping 'ōhi'a forest to the Kilohana Lookout, where the clouds part to reveal the Na Pali valleys from above. We'll hike in before dawn for a chance to hear some of the rarest birds on earth.</p>
+    </div>
+  </div>
+</div>
+
 <div class="spacer"></div>
 
 <section class="narrative">
@@ -750,99 +780,75 @@
 <!-- ═══════════════════════════════════════════════
      WHERE WE'LL STAY
      ═══════════════════════════════════════════════ -->
-<section class="choice-section">
+<section class="stays-section">
   <h2>Where We'll Stay</h2>
-  <p class="section-intro">Some decisions to make together — the character of the trip changes with the rooms we choose.</p>
+  <p class="section-intro">Five places, two islands, fourteen nights. Each one chosen for a reason.</p>
 
-  <!-- South Kona -->
-  <h3 style="text-align: center; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">South Kona</h3>
-  <div class="choice-pair">
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/holualoa-inn.jpg" alt="Holualoa Inn common room">
-      </div>
-      <div class="card-body">
-        <h4>Holualoa Inn</h4>
-        <div class="price">$648/night</div>
-        <p>A boutique inn in the coffee country above Kealakekua Bay. Lei greeting on arrival, estate coffee service. Perched in the hills above the coast, surrounded by working coffee farms. Quiet, beautiful, and close to everything on the Kona side.</p>
-      </div>
+  <!-- 1. Horizon Guest House -->
+  <div class="stay-card">
+    <div class="image-slot has-image">
+      <img src="images/horizon-guest-house.jpg" alt="Horizon Guest House ocean view">
     </div>
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/horizon-guest-house.jpg" alt="Horizon Guest House ocean view">
-      </div>
-      <div class="card-body">
-        <h4>Horizon Guest House</h4>
-        <div class="price">from ~$300/night</div>
-        <p>Perched above the coffee farms at 1,100 feet with 40-mile ocean views. Four suites, full breakfast on the lanai, saltwater pool. The kind of place where you sit on the deck and forget to go anywhere.</p>
-      </div>
+    <div class="card-body">
+      <div class="stay-dates">Sep 6 – 10 · 4 nights</div>
+      <h4>Horizon Guest House</h4>
+      <div class="stay-location">South Kona, Big Island</div>
+      <p>Forty acres of the McCandless Ranch at 1,100 feet, with ocean views that stretch past the horizon. Four suites, full breakfast on the lanai, an infinity pool that seems to pour into the Pacific. Hosts Clem and Angus have made this one of the most beloved small properties in all of Hawai'i. Our home base for Kealakekua Bay, the Place of Refuge, and the coffee country.</p>
     </div>
   </div>
 
-  <!-- Volcano -->
-  <h3 style="text-align: center; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Volcano Village</h3>
-  <div class="choice-pair" style="grid-template-columns: 1fr; max-width: 450px; margin: 0 auto 50px;">
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/volcano-village-lodge.jpg" alt="Volcano Village Lodge suite">
-      </div>
-      <div class="card-body">
-        <h4>Volcano Village Lodge</h4>
-        <div class="price">$418–555/night</div>
-        <p>Five intimate suites in a rainforest setting, two miles from the park entrance. Cedar-paneled rooms with fireplaces, private lanais, Kona coffee delivered to your room each morning. Native birds in the garden. The Asa Wright of Hawai'i.</p>
-      </div>
+  <!-- 2. Volcano Village Lodge -->
+  <div class="stay-card reverse">
+    <div class="image-slot has-image">
+      <img src="images/volcano-village-lodge.jpg" alt="Volcano Village Lodge suite">
+    </div>
+    <div class="card-body">
+      <div class="stay-dates">Sep 10 – 13 · 3 nights</div>
+      <h4>Volcano Village Lodge</h4>
+      <div class="stay-location">Volcano, Big Island</div>
+      <p>Five suites in a rainforest setting, two miles from Hawai'i Volcanoes National Park. Cedar-paneled rooms with fireplaces, private lanais, wine and cheese at sunset. Native birds in the garden, tree ferns outside the window, and the glow of Halema'uma'u crater under the new moon. Three nights to disappear into the cloud forest.</p>
     </div>
   </div>
 
-  <!-- Hilo -->
-  <h3 style="text-align: center; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Hilo</h3>
-  <div class="choice-pair">
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/hilo-honu-inn.jpg" alt="Samurai Suite at Hilo Honu Inn">
-      </div>
-      <div class="card-body">
-        <h4>Hilo Honu Inn</h4>
-        <div class="price">$275/night</div>
-        <p>Ryokan-style inn with panoramic Hilo Bay views. The Samurai Suite — tatami-inspired design, deep soaking aesthetics, and the kind of quiet intentionality that makes a room feel like a retreat.</p>
-      </div>
+  <!-- 3. Hilo Honu Inn -->
+  <div class="stay-card">
+    <div class="image-slot has-image">
+      <img src="images/hilo-honu-inn.jpg" alt="Samurai Suite at Hilo Honu Inn">
     </div>
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/reeds-island.jpg" alt="Soaking tub at The Falls at Reed's Island">
-      </div>
-      <div class="card-body">
-        <h4>The Falls at Reed's Island</h4>
-        <div class="price">$1,115/night · 3-night minimum</div>
-        <p>A private 2.5-acre estate on the Wailuku River, eye-level with a waterfall. Dual soaking tubs, yoga deck over the river. Named one of HomeAway's Top 10 Romantic Properties in the World. Featured in the New York Times. The honeymoon splurge.</p>
-      </div>
+    <div class="card-body">
+      <div class="stay-dates">Sep 13 – 14 · 1 night</div>
+      <h4>Hilo Honu Inn</h4>
+      <div class="stay-location">Hilo, Big Island</div>
+      <p>The Samurai Suite: ryokan-style design with panoramic Hilo Bay views. One night of quiet intentionality between the volcano and the flight to Kaua'i, with Mauna Kea stargazing under a nearly-new moon and the old town of Hilo to explore.</p>
     </div>
   </div>
 
-  <!-- Kaua'i -->
-  <h3 style="text-align: center; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;">Kaua'i North Shore</h3>
-  <div class="choice-pair">
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/palmwood.jpg" alt="The Palmwood at dusk">
-      </div>
-      <div class="card-body">
-        <h4>The Palmwood</h4>
-        <div class="price">$425–625/night</div>
-        <p>A three-room boutique B&B in the Moloa'a hills. Ryokan-inspired design: private hot tubs, outdoor showers, daily breakfast from locally sourced ingredients. Hilltop, secluded, deeply intentional. Near Kilauea Point. This one feels like us.</p>
-      </div>
+  <!-- 4. Marjorie's Kauai Inn -->
+  <div class="stay-card reverse">
+    <div class="image-slot has-image">
+      <img src="images/marjories-kauai-inn.jpg" alt="Marjorie's Kauai Inn overlooking the Lawai Valley">
     </div>
-    <div class="choice-card">
-      <div class="image-slot has-image">
-        <img src="images/1hotel-hanalei.jpg" alt="1 Hotel Hanalei Bay room view">
-      </div>
-      <div class="card-body">
-        <h4>1 Hotel Hanalei Bay</h4>
-        <div class="price">~$1,000–1,500/night</div>
-        <p>The former St. Regis, reimagined with a $300M renovation. Clifftop overlooking Hanalei Bay. Genuine sustainability credentials, adult pool, ninth-floor cocktail terrace with sunset views. Could work as a 2–3 night indulgence alongside a longer Palmwood stay.</p>
-      </div>
+    <div class="card-body">
+      <div class="stay-dates">Sep 14 – 18 · 4 nights</div>
+      <h4>Marjorie's Kauai Inn</h4>
+      <div class="stay-location">Lawai, South Shore, Kaua'i</div>
+      <p>A classic bed and breakfast on a hillside overlooking the sacred Lawai Valley — the Valley of Compassion — where warriors once came to heal. The property borders the National Tropical Botanical Garden, and breakfast is a gourmet affair on the lanai with valley views and birdsong. Our base for botanical gardens, south shore snorkeling, and a pre-dawn expedition to the Alaka'i Swamp to find the last honeycreepers.</p>
     </div>
   </div>
+
+  <!-- 5. 1 Hotel Hanalei Bay -->
+  <div class="stay-card">
+    <div class="image-slot has-image">
+      <img src="images/1hotel-hanalei.jpg" alt="1 Hotel Hanalei Bay room view">
+    </div>
+    <div class="card-body">
+      <div class="stay-dates">Sep 18 – 20 · 2 nights</div>
+      <h4>1 Hotel Hanalei Bay</h4>
+      <div class="stay-location">Princeville, North Shore, Kaua'i</div>
+      <p>The finale. A clifftop perch above Hanalei Bay — one of the most beautiful bays in the world — with the green mountains of the Na Pali coast beyond. Sunset cocktails on the ninth-floor terrace, the honeymoon dinner at Bar Acuda, and two last mornings in paradise before we fly home.</p>
+    </div>
+  </div>
+
 </section>
 
 
